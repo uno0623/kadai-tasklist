@@ -1,0 +1,12 @@
+<% if tasks.any? %>
+
+ <ul>
+   <% tasks.each do |task| %>
+     <li><%= link_to task.id, task %> : <%= task.content %> &gt; <%= task.status %></li>  
+   <% end %>
+ </ul>
+
+ <%== pagy_bootstrap_nav(@pagy) %>
+
+
+<% end %>
