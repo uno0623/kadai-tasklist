@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_170811) do
+ActiveRecord::Schema.define(version: 2021_08_08_084320) do
 
   create_table "tasks", charset: "utf8mb4", force: :cascade do |t|
     t.string "content"
@@ -29,4 +29,5 @@ ActiveRecord::Schema.define(version: 2021_07_21_170811) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "tasks", "users"
 end
