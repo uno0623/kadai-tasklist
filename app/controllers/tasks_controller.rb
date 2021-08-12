@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:index, :show, :create, :edit, :update, :destroy, :new]
+  before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy,:edit,:show,:update]
   
   def index
@@ -8,7 +8,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    correct_user
   end
 
   def new
@@ -28,7 +27,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-   correct_user
   end
 
   def update
