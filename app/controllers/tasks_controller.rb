@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   
   before_action :require_user_logged_in, only: [:index, :show, :create, :edit, :update, :destroy, :new]
-  before_action :correct_user, only: [:destroy,:edit,:show]
+  before_action :correct_user, only: [:destroy,:edit,:show,:update]
   
   def index
     @pagy, @tasks = pagy(current_user.tasks.order(id: :desc), items: 5)
@@ -32,7 +32,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
 
     if @task.update(task_params)
       flash[:success] = 'タスク は正常に更新されました'
